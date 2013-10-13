@@ -1,0 +1,77 @@
+/* CSS Document */
+* { margin: 0; padding: 0 }
+body { background-color: #F2F0E1; background: url(../imagens/grunge-decoracao.jpg) repeat; color: #333333; font: 12px Arial, Helvetica, sans-serif; text-align: left }
+
+#pagina { margin: 2px auto; height: auto; width: 100px; width: 960px }
+#topo { background: url(../imagens/topo01.jpg) no-repeat top center; height: 158px }
+#menu { background: url(../imagens/menu.jpg) repeat-x top center; height: 36px }
+#conteudo { background-color: #F2F0E1; height: 478px; width: 100%; text-align: left }
+#principal { float: left; height: auto; margin: 22px auto 22px auto; width: 855px; padding-left: 50px }
+#lista_principal { float: left; height: auto; margin: 22px auto 22px auto; width: 855px; padding-left: 75px }
+#bg { background: url(../imagens/painel.png) no-repeat top center; padding-left: 20px; height: 234px; border-right: 0.1em solid #D2D0C0; border-left: 0.1em solid #D2D0C0 }
+#informacao { float: left; height: 240px; margin: 0 auto 0 52px; padding-left: 2px; width: 420px }
+#regulamento { float: left; margin-top: 20px; width: 100% }
+#patrocinador { float: left; height: auto; margin: 0 auto; width: 855px; padding-left: 50px } 
+#rodape { background: url(../imagens/rodape.jpg) repeat-x top center; font-size: 10px; height: 70px; padding-left: 35px }
+#destaque { height: auto; width: 100% }
+#destaque img { float: left; margin-right: 15px; margin-top: 2px }
+#formulario { float: left; margin: 22px auto; width: 855px; padding-left: 50px; padding-bottom: 10px }
+#headend { float: left; height: auto; width: 100% }
+#headend b { color: #0099CC; font-size: 22px }
+#headend p { font-size: 12px; padding-top: 5px }
+#inscricao { float: left; height: auto; margin-top: 20px; width: 100% }
+#id { border-collapse: collapse; width: auto }
+#id tr th { height: 24px; border-bottom: 3px solid #0099CC; font-size: 13px }
+#id tr td { height: 24px; font-size: 13px }
+#login { margin: 0 auto; width: 280px }
+#arrows { height: auto; margin-bottom: 10px }
+
+.titulo { color: #000000; font-size: 20px; text-align: left }
+.campo { border: 1px #D3D1B8 solid; color: #333333; height: 18px }
+.botao { background: url(../imagens/botao.png) no-repeat; color: #FFFFFF; cursor: pointer; font-weight: bold; border: 0; height: 28px; text-align: center; width: 90px }
+.botao-login { background-color: #7C7A6D; border: 1px solid #E2E1CF; color: #FFFFFF; font-weight: bold; margin-top: 5px; padding: 2px }
+.login { background-color: #E2E1CF; border: 1px solid #7C7A6D; height: 130px; width: 280px; text-align: left }
+.login label { cursor: pointer; }
+.obrigatorio { color: #CC3333; font-size: 15px }
+.desnecessario { color: #009900; font-size: 15px }
+.painel-01 { float: left; height: 200px; margin: 18px 0 10px 0; width: 400px }
+.painel-02 { float: right; height: 200px; margin: 18px 12px 10px 0; width: 395px }
+.painel-03 { background: url(../imagens/outdoor.jpg) no-repeat top center; float: right; height: 200px; margin: 18px 0px 10px 0; width: 850px }
+.cabecalho { color: #000000; font-size: 14px; font-weight: bold; line-height: 1.4em; margin-top: 14px; text-align: justify }
+.texto { line-height: 1.8em; margin-top: 14px; text-align: justify }
+.destaque { color: #000000; font-size: 20px }
+.meuForm p { border-top: 1px dashed #D3D1B8; clear: left; margin: 0; padding: 5px 0 8px 0; width: auto }
+.meuForm label { cursor: pointer; float: left; font-weight: bold; width: 160px }
+.rowOn { background-color: #D3D1B8 }
+.rowOff { background-color: #F2F0E1 }
+.right { text-align: right }
+.administrador { float: right; margin: 5px 8px 0 0 }
+.headend { background-color: #D3D1B8; border-bottom: 1px solid #B7B59C; height: auto; margin-bottom: 4px; padding: 3px }
+.headend b { padding-left: 5px; letter-spacing: 1px }
+.aberto { height: auto; width: 100% }
+.fechado { display: none }
+.textos { font-size: 13px !important; line-height: 20px; padding: 5px }
+.title { font-size: 16px; color: #000000 }
+
+a.linkcss:link { color: #333333; font-weight: bold }
+a.linkcss:visited { color: #333333; font-weight: bold }
+a.linkcss:hover { color: #0099CC; font-weight: bold }
+a.linkcss:active { color: #333333; font-weight: bold }
+
+a.linktopo:link { color: #333333; font-weight: bold; text-decoration: none }
+a.linktopo:visited { color: #333333; font-weight: bold;text-decoration: none }
+a.linktopo:hover { color: #333333; font-weight: bold; text-decoration: underline }
+a.linktopo:active { color: #333333; font-weight: bold; text-decoration: none }
+
+a.links:link { color: #333333; text-decoration: none }
+a.links:visited { color: #333333; text-decoration: none }
+a.links:hover { color: #333333; text-decoration: underline }
+a.links:active { color: #333333; text-decoration: none }
+
+#menu ul { list-style: none; margin: 0; padding-top: 10px; width: auto }
+#menu ul li { display: inline; margin-left: 50px }
+#menu ul li a { color: #F7F7F7; font-size: 15px; font-weight: bold; text-decoration: none; }
+#menu ul li a:hover { color: #003366; font-size: 15px; font-weight: bold; text-decoration: none }
+
+#rodape ul { list-style: none; width: auto; padding-top: 20px }
+#rodape ul li { display: inline }
