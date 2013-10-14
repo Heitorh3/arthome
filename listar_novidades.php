@@ -1,5 +1,5 @@
 	<?php
-
+		include('../../classes/conexao.php');
    	  				$sql = "SELECT noticia from tbl_noticias;";
 		
 					$conexao = new Conexao();
