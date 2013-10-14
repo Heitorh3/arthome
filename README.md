@@ -34,14 +34,17 @@ SITE DESENVOLVIDO PARA A PLATAFORMA LINUX PHP 4 ou 5 MYSQL Etc.
 			- conectdb.php
 			- upload.php
 			- Connections/galeria.php
+			- classes/conexao.php
+			- classes/conexao_normal.php
 
 	
 	3º 	Envie estes arquivos através de FTP para o seu servidor e de permissão
 		de leitura e escrita (CHMOD 0777 no Linux) nos seguintes e pastas:
 			- imagens/
 	
-	4º 	Cria uma tabela no banco de dados MySQL importando o arquivo "db_arthome.sql"
+	4º 	Cria as tabelas no banco de dados MySQL importando o arquivo "db_arthome.sql"
 		para o seu banco de dados: 
+	
 
 =====================================================================================
 	OBS:
