@@ -21,8 +21,8 @@
                     <br /> <a class="linkcss" href="index.php">Voltar</a>
                     </div>
                 <?php } else { ?>
-                	<b>Cadastro de avaliador efetuado com sucesso!</b> <br />
-            		<p>Para visualizar a listagem de avaliadores clique <a class="linkcss" href="listagem_avaliadores.php">aqui</a>!</p>
+                	<b>Administrador cadastrado com sucesso!</b> <br />
+            		<p>Para visualizar a listagem de todos os usuários clique <a class="linkcss" href="listar_usuarios.php">aqui</a>!</p>
                     <br /> <a class="linkcss" href="cadastra_avaliador.php">Voltar</a>
                     <br /> <br />
                     </div>
