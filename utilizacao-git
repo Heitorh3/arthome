@@ -1,0 +1,21 @@
+Bixar o projeto
+git clone "endereço do repositório"
+
+
+verificar informações do projeto
+git remote -v
+
+
+recuperar mudanças para o repositório local
+git pull
+
+
+fazer o commit remoto
+
+git add "o arquivo que sofreu a mudança"
+
+colocando a mudança do repositório loca ande de enviar a mudaça para o repositório remoto.
+
+git commit -m "modificação local"
+
+git push origin master
