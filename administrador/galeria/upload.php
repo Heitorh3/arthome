@@ -3,7 +3,7 @@
  * Conexão Mysql
  */
 $conn = mysql_connect('localhost', 'root', 'floresta');
-$db   = mysql_select_db('galeria');
+$db   = mysql_select_db('db_arthome');
 
 $file = $_FILES['Filedata'];
 
