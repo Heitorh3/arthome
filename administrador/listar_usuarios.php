@@ -10,7 +10,7 @@
 <head>
 	<link href="../css/css.css" rel="stylesheet" type="text/css" />
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-	<title>Projetos Inscritos</title>
+	<title>Usuários Cadastrados</title>
     <script language="javascript" src="js.js" type="text/javascript"></script>
 </head>
 
@@ -21,7 +21,7 @@
         
         <div id="conteudo" style="height: auto; overflow: hidden">
             <div id="formulario">
-                <div id="headend"><b>Projetos Inscritos</b> <br /> <p>Listagem completa de todos os projetos inscritos até o momento!</p></div>
+                <div id="headend"><b>Usuários Cadastrados</b> <br /> <p>Listagem completa de todos os usuário inscritos até o momento!</p></div>
                 <div id="inscricao"> <?php include('listagens/listagem_usuarios.php'); ?> <p>&nbsp;</p> </div>
             </div>
         </div>
