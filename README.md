@@ -16,7 +16,7 @@ SITE DESENVOLVIDO PARA A PLATAFORMA LINUX PHP 4 ou 5 MYSQL Etc.
 	REQUISITOS
 =====================================================================================
 	
-	Requisitos necessários para utilizar a galeria:
+	Requisitos necessários para o site:
 	
 		- Servidor HTTP (Apache, IIS, TomCat, etc.)
 		- PHP 5 ou superior
