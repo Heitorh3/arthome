@@ -7,8 +7,9 @@
 	{
 		$noticia = $_REQUEST['noticia'];
 		
-		$sql = "INSERT
-				INTO tbl_noticias (noticia)	VALUES('" .$noticia. "')";
+		//$sql = "INSERT INTO tbl_noticias (noticia)	VALUES('" .$noticia. "')";
+
+		$sql = "UPDATE tbl_noticias SET noticia = '" .$noticia. "' where 1;";
 		
 		$conexao = new Conexao();
 	
