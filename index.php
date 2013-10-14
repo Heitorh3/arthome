@@ -19,8 +19,8 @@
 				<div id="bg">
             	<div class="painel-01">
                 	<h2 class="titulo">ARTHOME</h2>
-                    <p class="cabecalho">Um novo nome para você decorar!</p>
-                    <p class="texto">Para quem procura objetos decorativos e presentes especiais, a Art Home tem muito a oferecer. Na  Art Home você encontrará 			arranjos, esculturas, quadros, utilitários, adoros e os mais diversos objetos para tornar seu ambiente acolhedor e sofisticado.</p> 
+                    <p class="cabecalho">Um novo nome para vocï¿½ decorar!</p>
+                    <p class="texto">Para quem procura objetos decorativos e presentes especiais, a Art Home tem muito a oferecer. Na  Art Home vocï¿½ encontrarï¿½ 			arranjos, esculturas, quadros, utilitï¿½rios, adoros e os mais diversos objetos para tornar seu ambiente acolhedor e sofisticado.</p> 
             	</div>
 					<div class="painel-02">
 						<?php include('slideshow.html');?>			
@@ -34,38 +34,7 @@
 			  <p style="color: #FFFFFF; font-size: 18px; margin: 4px; letter-spacing: 1px; text-transform: uppercase">Novidades</p> 
 			</div>
    	  		<div style="background-color: #E2E1CF; float: left; height: 128px; margin-top: 3px; width: 100%">
-   	  			<?php
-
-   	  				$sql = "SELECT noticia from tbl_noticias;";
-		
-					$conexao = new Conexao();
-	
-						$conexao->criaConexao();
-		
-						$consulta = mysql_query($sql);
-						
-						if(! $consulta) {
-							echo 'ERRO: '.mysql_error();
-							echo '<br /> Número: '.mysql_errno(); 
-						}
-
-						$total = mysql_num_rows($consulta);
-	
-							if($total <= 0) {
-								echo '<b style="color: #990000; font-size: 20px">Nenhum noticia cadastrada!</b>';
-							} else {
-								echo '<table border="0" id="id" style="width: 100%">';
-								echo '<tr>';
-								echo '<th align="center" width="04%"></th>';
-							}
-							while($row = mysql_fetch_assoc($consulta))
-							{
-								echo '<td>' .$row['noticia']. '</td>';									
-							}	
-							echo '</table>';
-												
-					$conexao->fechaConexao();
-				?>			
+   	  		-----			
    	  		</div>
    		  </div>
 		  </div>
