@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<link href="css/css.css" rel="stylesheet" type="text/css"/>
-	<meta http-equiv="Content-Type" content="text/html; charset="UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<title>ArtHome</title>   
 </head>
 
@@ -17,8 +17,8 @@
 				<div id="bg">
             	<div class="painel-01">
                 	<h2 class="titulo">ARTHOME</h2>
-                    <p class="cabecalho">Um novo nome para voc� decorar!</p>
-                    <p class="texto">Para quem procura objetos decorativos e presentes especiais, a Art Home tem muito a oferecer. Na  Art Home voc� encontrar� 			arranjos, esculturas, quadros, utilit�rios, adoros e os mais diversos objetos para tornar seu ambiente acolhedor e sofisticado.</p> 
+                    <p class="cabecalho">Um novo nome para você decorar!</p>
+                    <p class="texto">Para quem procura objetos decorativos e presentes especiais, a ArtHome tem muito a oferecer. Na  ArtHome você encontrará arranjos, esculturas, quadros, utilitários, adoros e os mais diversos objetos para tornar seu ambiente acolhedor e sofisticado.</p> 
             	</div>
 					<div class="painel-02">
 						<?php include('slideshow.html');?>			
