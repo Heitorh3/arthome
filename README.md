@@ -1,6 +1,5 @@
 AREA-56 <|:Neo:|>
-GALERIA DESENVOLVIA PARA LOCALHOST E INTRANET PARA PLATAFORMA LINUX PHP 4 ou 5
-MYSQL Etc.
+SITE DESENVOLVIDO PARA A PLATAFORMA LINUX PHP 4 ou 5 MYSQL Etc.
 
 =====================================================================================
                	             Site Arthome - Ver. Beta
@@ -46,16 +45,6 @@ MYSQL Etc.
 
 =====================================================================================
 	OBS:
-=====================================================================================
-	
-		Esta agleria foi criada por mim, exclusivamente por mim
-		peço a todos, que se for fazerem alguma modificação ou melhoramento
-		informa-me, esta galeria foi craida com objetivo de estudo e ajudar
-		a todos que precisam de uma agleria simples com multupload.
-		A todos espero que gostem.
-		
-=====================================================================================
-	OBS2:
 =====================================================================================
 
 		Para enviar as imagens ultilize o arquivo "uploader.php".
