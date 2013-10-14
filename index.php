@@ -17,8 +17,8 @@
 				<div id="bg">
             	<div class="painel-01">
                 	<h2 class="titulo">ARTHOME</h2>
-                    <p class="cabecalho">Um novo nome para você decorar!</p>
-                    <p class="texto">Para quem procura objetos decorativos e presentes especiais, a ArtHome tem muito a oferecer. Na  ArtHome você encontrará arranjos, esculturas, quadros, utilitários, adoros e os mais diversos objetos para tornar seu ambiente acolhedor e sofisticado.</p> 
+                    <p class="cabecalho">Um novo mone para você decorar!</p>
+                    <p class="texto">Para quem procura objetos decorativos e presentes especiais, a Art Home tem muito a oferecer. Na  Art Home você encontrará 			arranjos, esculturas, quadros, utilitários, adoros e os mais diversos objetos para tornar seu ambiente acolhedor e sofisticado.</p> 
             	</div>
 					<div class="painel-02">
 						<?php include('slideshow.html');?>			
