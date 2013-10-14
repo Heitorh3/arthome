@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<link href="css/css.css" rel="stylesheet" type="text/css"/>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta http-equiv="Content-Type" content="text/html; charset="UTF-8" />
 	<title>ArtHome</title>   
 </head>
 
@@ -32,7 +32,7 @@
 			  <p style="color: #FFFFFF; font-size: 18px; margin: 4px; letter-spacing: 1px; text-transform: uppercase">Novidades</p> 
 			</div>
    	  		<div style="background-color: #E2E1CF; float: left; height: 128px; margin-top: 3px; width: 100%">
-   	  		-----	<?php include('listar_novidade.php'); ?>
+   	  			<?php include('listar_novidades.php'); ?>
    	  		</div>
    		  </div>
 		  </div>
