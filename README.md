@@ -40,7 +40,7 @@ SITE DESENVOLVIDO PARA A PLATAFORMA LINUX PHP 4 ou 5 MYSQL Etc.
 		de leitura e escrita (CHMOD 0777 no Linux) nos seguintes e pastas:
 			- imagens/
 	
-	4º 	Cria uma tabela no banco de dados MySQL importando o arquivo "arthome.sql"
+	4º 	Cria uma tabela no banco de dados MySQL importando o arquivo "db_arthome.sql"
 		para o seu banco de dados: 
 
 =====================================================================================
