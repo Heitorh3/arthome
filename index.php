@@ -1,5 +1,3 @@
-<?php include('../../classes/conexao.php'); ?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -34,7 +32,7 @@
 			  <p style="color: #FFFFFF; font-size: 18px; margin: 4px; letter-spacing: 1px; text-transform: uppercase">Novidades</p> 
 			</div>
    	  		<div style="background-color: #E2E1CF; float: left; height: 128px; margin-top: 3px; width: 100%">
-   	  		-----			
+   	  		-----	<?php include('listar_novidade.php'); ?>
    	  		</div>
    		  </div>
 		  </div>
