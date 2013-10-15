@@ -76,3 +76,15 @@ CREATE TABLE IF NOT EXISTS `tbl_albums_photos` (
   `caption` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
 )ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+
+
+--
+-- Estrutura da tabela `fotos`
+--
+
+CREATE TABLE IF NOT EXISTS `fotos` (
+  `id` int(30) NOT NULL auto_increment,
+  `foto` char(200) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
