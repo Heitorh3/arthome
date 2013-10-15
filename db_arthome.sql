@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tempo de Geração: Abr 08, 2009 as 02:16 PM
--- Versão do Servidor: 5.0.51
--- Versão do PHP: 5.2.5
+-- Tempo de Geraï¿½ï¿½o: Abr 08, 2009 as 02:16 PM
+-- Versï¿½o do Servidor: 5.0.51
+-- Versï¿½o do PHP: 5.2.5
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -46,6 +46,12 @@ CREATE TABLE `tbl_noticias` (
   `noticia` varchar(1024) NOT NULL,
   PRIMARY KEY  (`noticias_codigo`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Cadastrando uma noticia na tabela `tbl_noticias`
+--
+
+INSERT INTO `tbl_noticias` (`noticias`) VALUES ('Venha conferir as novidades da nossa loja');
 
 --
 -- Estrutura da tabela `tbl_albums`
