@@ -51,7 +51,7 @@ CREATE TABLE `tbl_noticias` (
 -- Cadastrando uma noticia na tabela `tbl_noticias`
 --
 
-INSERT INTO `tbl_noticias` (`noticias`) VALUES ('Venha conferir as novidades da nossa loja');
+INSERT INTO `tbl_noticias` (`noticia`) VALUES ('Venha conferir as novidades da nossa loja');
 
 --
 -- Estrutura da tabela `tbl_albums`
