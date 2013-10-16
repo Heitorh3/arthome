@@ -1,38 +1,49 @@
-<?php
-/**
- * Conexão Mysql
- */
-$conn = mysql_connect('localhost', 'root', 'floresta');
-$db   = mysql_select_db('db_arthome');
+<?php include('../verifica.php'); if ($_SESSION['tipo'] == 'Administrador') { ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>UPLOAD</title>
+<script type="text/javascript" src="js/swfobject.js"></script>
+<script type="text/javascript" src="js/multiUpload.js"></script>
+<link href="../../css/css.css" rel="stylesheet" type="text/css" />
+</head>
 
-$file = $_FILES['Filedata'];
+<style type="text/css">
+    @import "css/multiUpload.css";
+</style>
 
-$album = (int) $_POST['id'];
-$filename = $file['name'];
+<body>
 
-$query = "INSERT INTO fotos (id, foto) VALUES ('$id', '$filename')";
+<script type="text/javascript">
+    var uploader = new multiUpload('uploader', 'uploader_files', {
+        swf:            'swf/multiUpload.swf', // 
+        script:         'upload.php',
+        expressInstall: 'swf/expressInstall.swf',
+        multi:          true
+    });
+</script>
 
-mysql_query($query);
+    <div id="pagina">
+            <?php include('../includes/topo.php'); ?>
+            <?php include('../includes/menu.php'); ?>
 
-$path     = $file['tmp_name'];
-$new_path = "imagens/".$file['name'];
+            <div id="conteudo" style="height: auto; overflow: hidden;">
+            <div id="formulario">
+                <div id="headend"><b>Cadastrar Imagens</b> <br /> <p>Espaço reservado para o cadastro de imagens de novos produtos!</p></div>
+                
+                <div id="inscricao">
+                                                       
+                            <div id="uploader"></div>
+                            <div id="uploader_files"></div>
+                            <a href="javascript:uploader.startUpload();">INICIAR UPLOAD</a> | <a href="javascript:uploader.clearUploadQueue();">LIMPAR UPLOAD</a>
 
-move_uploaded_file($path, $new_path);
-
-// Vamos usar a biblioteca WideImage para o redimensionamento das imagens
-require("lib/WideImage/WideImage.php");
-
-// Carrega a imagem enviada
-$original = WideImage::load($new_path);
-
-// Redimensiona a imagem original para 1024x768 caso ela seja maior que isto e salva
-$original->resize(1024, 768, 'inside', 'down')->saveToFile($new_path, null, 90);
-
-// Cria a miniatura
-$ext = end(explode(".", $new_path)); // Pega a extensão do arquivo
-$thumb = str_replace(".$ext", "_thumb.$ext", $new_path); // Substitui a extensão
-
-$original->resize(100, 75, 'inside', 'down')->saveToFile($thumb, null, 90); // Redimensiona e salva
-
-echo mysql_insert_id(); // Retorna o id da foto
-?>
+                    <div style="margin: 10px 0 0 160px; width: auto"> <input class="botao" id="acao" name="acao" type="submit" value="Inserir" /> &nbsp; <input class="botao" type="reset" value="Limpar" /> </div>               
+                </div>
+            </div>
+        </div>
+        <?php include('../includes/rodape.php'); ?>
+    </div>
+</body>
+</html>
+<?php } else { header('Location: ../../login_administrador.php'); } ?>
