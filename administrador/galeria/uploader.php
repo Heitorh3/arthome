@@ -1,3 +1,4 @@
+<?php include('verifica.php'); if ($_SESSION['tipo'] == 'Administrador') { ?>
 <?php require_once('Connections/galeria.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
@@ -56,6 +57,12 @@ $totalRows_fotos = mysql_num_rows($fotos);
 		multi:          true
 	});
 </script>
+
+<div>
+        <?php include('includes/topo.php'); ?>
+        <?php include('includes/menu.php'); ?>
+
+</div>
 
 <div id="uploader"></div>
 <div id="uploader_files"></div>

@@ -43,7 +43,7 @@
 				echo '<td>' .$row['adm_nome']. '</td>';
 				echo '<td>' .$row['adm_usuario']. '</td>';
 				echo '<td>' .$row['adm_email']. '</td>';								
-				echo '<td align="left">' .substr($row['adm_data_cadastro'], 0, 10). '</td>';
+				
 				echo '<td align="right"> <a href="javascript:ativar('.$row['adm_codigo'].', '.$row['adm_status'].')"><img border="0" src="../imagens/ativar.png" alt="Ativar" /></a> <a href="javascript:deletar('.$row['adm_codigo'].')"><img border="0" src="../imagens/delete.png" alt="Deletar" /></a> </td>';
 				
 				echo '</tr>';
@@ -60,8 +60,7 @@
 				
 				echo '<td>' .$row['adm_nome']. '</td>';
 				echo '<td>' .$row['adm_usuario']. '</td>';
-				echo '<td>' .$row['adm_email']. '</td>';	
-				echo '<td align="left">' .substr($row['adm_data_cadastro'], 0, 10). '</td>';
+				echo '<td>' .$row['adm_email']. '</td>';				
 				echo '<td align="right"> <a href="javascript:ativar('.$row['adm_codigo'].', '.$row['adm_status'].')"><img border="0" src="../imagens/ativar.png" alt="Ativar" /></a> <a href="javascript:deletar('.$row['adm_codigo'].')"><img border="0" src="../imagens/delete.png" alt="Deletar" /></a> </td>';
 				echo '</tr>';
 				$flag++;
