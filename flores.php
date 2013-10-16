@@ -27,12 +27,14 @@
 		  </div>
 		  
           <br/>
-		  <div id="patrocinador">
-			<div style="background-color: #7C7A6D; float: left; height: 30px; width: 100%"> 
-			  <p style="color: #FFFFFF; font-size: 18px; margin: 4px; letter-spacing: 1px; text-transform: uppercase">Promoções</p> 
-			</div>
-   	  		<div style="background-color: #E2E1CF; float: left; height: 128px; margin-top: 3px; width: 100%"></div>
-   		  </div>
+			  <div id="novidades">
+					<div style="background-color: #7C7A6D; float: left; height: 30px; width: 100%"> 
+					  <p style="color: #FFFFFF; font-size: 18px; margin: 4px; letter-spacing: 1px; text-transform: uppercase">Promoções</p> 
+					</div>
+	   	  		<div style="background-color: #E2E1CF; float: left; height: 128px; margin-top: 3px; width: 100%">
+	   	  			<?php include('listar_novidades.php'); ?>
+	   	  		</div>
+	   		  </div>
 		  </div>
 		  <?php include('includes/rodape.php');?>
 	</div>

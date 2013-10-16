@@ -36,9 +36,10 @@
                                                        
                             <div id="uploader"></div>
                             <div id="uploader_files"></div>
-                            <a href="javascript:uploader.startUpload();">INICIAR UPLOAD</a> | <a href="javascript:uploader.clearUploadQueue();">LIMPAR UPLOAD</a>
 
-                    <div style="margin: 10px 0 0 160px; width: auto"> <input class="botao" id="acao" name="acao" type="submit" value="Inserir" /> &nbsp; <input class="botao" type="reset" value="Limpar" /> </div>               
+                    <div style="margin: 10px 0 0 160px; width: auto"> 
+                        <input class="botao" id="acao" name="acao" type="submit" onclick="javascript:uploader.startUpload();"value="Inserir" /> &nbsp; 
+                        <input class="botao" type="reset" onclick="javascript:uploader.clearUploadQueue();" value="Limpar" /> </div>               
                 </div>
             </div>
         </div>

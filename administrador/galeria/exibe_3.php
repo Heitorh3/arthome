@@ -1,3 +1,4 @@
+<?php include('../verifica.php'); if ($_SESSION['tipo'] == 'Administrador') { ?>
 <?php require_once('Connections/galeria.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
@@ -40,8 +41,10 @@ $totalRows_fotos = mysql_num_rows($fotos);
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
 </head>
-	<link rel="stylesheet" type="text/css" href="../style-projects-jquery.css" />    
-    
+	<link rel="stylesheet" type="text/css" href="../style-projects-jquery.css" />      
+  <link href="../css/css.css" rel="stylesheet" type="text/css" />
+
+
     <!-- Arquivos utilizados pelo jQuery lightBox plugin -->
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/jquery.lightbox-0.5.js"></script>
@@ -74,8 +77,13 @@ $totalRows_fotos = mysql_num_rows($fotos);
 	}
 	#gallery ul a:hover { color: #fff; }
 	</style>
+
 <body>
-<table width="779" border="0" align="center">
+  <div id="pagina">
+          <?php include('../includes/topo.php'); ?>
+          <?php include('../includes/menu.php'); ?>
+
+<table width="779" border="1" align="center">
   <tr>
     <td><div align="center" id="gallery">
       <?php do { ?>
@@ -85,6 +93,5 @@ $totalRows_fotos = mysql_num_rows($fotos);
 </table>
 </body>
 </html>
-<?php
-mysql_free_result($fotos);
-?>
+<?php mysql_free_result($fotos);?>
+<?php } else { header('Location: ../../login_administrador.php'); } ?>
