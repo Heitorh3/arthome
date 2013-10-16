@@ -16,7 +16,7 @@
 			<div id="principal">
 				<div id="bg">
             	<div class="painel-01">
-                	<h2 class="titulo">ARTHOME</h2>
+                	<h2 class="titulo">ART HOME</h2>
                     <p class="cabecalho">Um novo mone para você decorar!</p>
                     <p class="texto">Para quem procura objetos decorativos e presentes especiais, a Art Home tem muito a oferecer. Na  Art Home você encontrará 			arranjos, esculturas, quadros, utilitários, adoros e os mais diversos objetos para tornar seu ambiente acolhedor e sofisticado.</p> 
             	</div>
@@ -28,12 +28,12 @@
 		  
           <br/>
 		  <div id="novidades">
-			<div style="background-color: #7C7A6D; float: left; height: 30px; width: 100%"> 
-			  <p style="color: #FFFFFF; font-size: 18px; margin: 4px; letter-spacing: 1px; text-transform: uppercase">Novidades</p> 
-			</div>
-   	  		<div style="background-color: #E2E1CF; float: left; height: 128px; margin-top: 3px; width: 100%">
-   	  			<?php include('listar_novidades.php'); ?>
-   	  		</div>
+				<div style="background-color: #7C7A6D; float: left; height: 30px; width: 100%"> 
+				  	<p style="color: #FFFFFF; font-size: 18px; margin: 4px; letter-spacing: 1px; text-transform: uppercase">Novidades</p> 
+				</div>
+	   	  		<div style="background-color: #E2E1CF; float: left; height: 128px; margin-top: 3px; width: 100%">
+	   	  			<?php include('listar_novidades.php'); ?>
+	   	  		</div>
    		  </div>
 		  </div>
 		  <?php include('includes/rodape.php');?>
