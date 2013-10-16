@@ -18,7 +18,7 @@
 <script type="text/javascript">
     var uploader = new multiUpload('uploader', 'uploader_files', {
         swf:            'swf/multiUpload.swf', // 
-        script:         'upload.php',
+        script:         'cadastra_imagens.php',
         expressInstall: 'swf/expressInstall.swf',
         multi:          true
     });
