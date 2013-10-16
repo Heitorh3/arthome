@@ -1,7 +1,5 @@
+<?php include('verifica.php'); if ($_SESSION['tipo'] == 'Administrador') { ?>
 <?php
-/**
- * Conexão Mysql
- */
 $conn = mysql_connect('localhost', 'root', 'floresta');
 $db   = mysql_select_db('db_arthome');
 
@@ -15,12 +13,12 @@ $query = "INSERT INTO fotos (id, foto) VALUES ('$id', '$filename')";
 mysql_query($query);
 
 $path     = $file['tmp_name'];
-$new_path = "imagens/".$file['name'];
+$new_path = "galeria/imagens/".$file['name'];
 
 move_uploaded_file($path, $new_path);
 
 // Vamos usar a biblioteca WideImage para o redimensionamento das imagens
-require("lib/WideImage/WideImage.php");
+require("galeria/lib/WideImage/WideImage.php");
 
 // Carrega a imagem enviada
 $original = WideImage::load($new_path);
@@ -36,3 +34,4 @@ $original->resize(100, 75, 'inside', 'down')->saveToFile($thumb, null, 90); // R
 
 echo mysql_insert_id(); // Retorna o id da foto
 ?>
+<?php } else { header('Location: ../login_administrador.php'); } ?>
