@@ -1,119 +1,106 @@
-<style type="text/css">
-<!--
-.style1 {font-family: Verdana, Arial, Helvetica, sans-serif}
-a {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 12px;
-	font-weight: bold;
+<?php require_once('galeria/Connections/galeria.php'); ?>
+<?php
+if (!function_exists("GetSQLValueString")) {
+function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
+{
+  $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
+
+  $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
+
+  switch ($theType) {
+    case "text":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;    
+    case "long":
+    case "int":
+      $theValue = ($theValue != "") ? intval($theValue) : "NULL";
+      break;
+    case "double":
+      $theValue = ($theValue != "") ? "'" . doubleval($theValue) . "'" : "NULL";
+      break;
+    case "date":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;
+    case "defined":
+      $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
+      break;
+  }
+  return $theValue;
 }
-a:link {
-	color: #FFFFFF;
-	text-decoration: none;
 }
-a:visited {
-	text-decoration: none;
-	color: #FFFFFF;
+
+$currentPage = $_SERVER["PHP_SELF"];
+
+$maxRows_fotos = 18;
+$pageNum_fotos = 0;
+if (isset($_GET['pageNum_fotos'])) {
+  $pageNum_fotos = $_GET['pageNum_fotos'];
 }
-a:hover {
-	text-decoration: underline;
-	color: #FFFF00;
+$startRow_fotos = $pageNum_fotos * $maxRows_fotos;
+
+       
+mysql_select_db($database_galeria, $galeria);
+
+
+$query_fotos = "SELECT id,foto FROM fotos ORDER BY id DESC";
+$query_limit_fotos = sprintf("%s LIMIT %d, %d", $query_fotos, $startRow_fotos, $maxRows_fotos);
+$fotos = mysql_query($query_limit_fotos, $galeria) or die(mysql_error());
+$row_fotos = mysql_fetch_assoc($fotos);
+
+if (isset($_GET['totalRows_fotos'])) {
+  $totalRows_fotos = $_GET['totalRows_fotos'];
+} else {
+  $all_fotos = mysql_query($query_fotos);
+  $totalRows_fotos = mysql_num_rows($all_fotos);
 }
-a:active {
-	text-decoration: none;
+$totalPages_fotos = ceil($totalRows_fotos/$maxRows_fotos)-1;
+
+$queryString_fotos = "";
+if (!empty($_SERVER['QUERY_STRING'])) {
+  $params = explode("&", $_SERVER['QUERY_STRING']);
+  $newParams = array();
+  foreach ($params as $param) {
+    if (stristr($param, "pageNum_fotos") == false && 
+        stristr($param, "totalRows_fotos") == false) {
+      array_push($newParams, $param);
+    }
+  }
+  if (count($newParams) != 0) {
+    $queryString_fotos = "&" . htmlentities(implode("&", $newParams));
+  }
 }
-body,td,th {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 12px;
-	color: #000000;
-}
-.style3 {color: #000000}
--->
-</style>
-<title>EXCLUIR IMAGEM</title>
+$queryString_fotos = sprintf("&totalRows_fotos=%d%s", $totalRows_fotos, $queryString_fotos);
+?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Fotos dos Produtos</title>
+</head>
+	<link rel="stylesheet" type="text/css" href="../style-projects-jquery.css" />    
+    
     <!-- Arquivos utilizados pelo jQuery lightBox plugin -->
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/jquery.lightbox-0.5.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/jquery.lightbox-0.5.css" media="screen" />
+    <script type="text/javascript" src="galeria/js/jquery.js"></script>
+    <script type="text/javascript" src="galeria/js/jquery.lightbox-0.5.js"></script>
+    <link rel="stylesheet" type="text/css" href="galeria/css/jquery.lightbox-0.5.css" media="screen" />
     <!-- / fim dos arquivos utilizados pelo jQuery lightBox plugin -->
-        
-    <!-- Ativando o jQuery lightBox plugin -->
-    <script type="text/javascript">
-    $(function() {
-        $('#gallery a').lightBox();
-    });
-    </script>
-    <style type="text/css">
-	/* jQuery lightBox plugin - Gallery style */
-	#gallery {
-		background-color: transparent;
-		padding: 10px;
-	}
-	#gallery ul { list-style: none; }
-	#gallery ul li { display: inline; }
-	#gallery ul img {
-		border: 5px solid #3e3e3e;
-		border-width: 5px 5px 20px;
-	}
-	#gallery ul a:hover img {
-		border: 5px solid #fff;
-		border-width: 5px 5px 20px;
-		color: #fff;
-	}
-	#gallery ul a:hover { color: #fff; }
-	</style>
-    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-  <tr>
-    <td bgcolor="#CCCCCC"><div align="center" class="style1"></div></td>
-  </tr>
-</table>
-
-
-<?
-
-require ("conectdb.php");
-
-$sql = "SELECT * FROM fotos ORDER BY id DESC";
-
-
-$limite = mysql_query("$sql");
-
-while  ($sql = mysql_fetch_array ($limite) ) {
-
-$arquivo = $sql['foto'];
-$id = $sql['id'];
-
+<body>
+<div id="tamanho">
+    <table width="500" border="0" align="center">
+      <tr>
+        <td>
+          <div width="500" align="center">
+            <?php do { ?>
+                <a href="excluir.php?<? echo"id=$id";?>"<img src="galeria/imagens/<?php echo $row_fotos['foto']; ?>" width="150" height="150"/></a>
+            <?php } while ($row_fotos = mysql_fetch_assoc($fotos)); ?>                          
+          </div>
+        </td>
+      </tr>      
+    </table>
+</body>
+</html>
+<?php
+mysql_free_result($fotos);
 ?>
-
-<style type="text/css">
-<!--
-.style1 {
-	font-size: 18px;
-	font-weight: bold;
-}
-body,td,th {
-	font-family: Arial, Helvetica, sans-serif;
-}
--->
-</style>
-
-
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <th scope="col"><table width="100%" border="0" align="center" cellpadding="5" cellspacing="0">
-          <tr>
-            <th width="596" align="left" valign="top" scope="col"><div align="center" id="gallery">
-              <div align="left"><a href="imagens/<? echo"$arquivo";?>" rel="lightbox[roadtrip]"><img src="imagens/<? echo"$arquivo";?>" alt="UP!" width='230' height="172" border="2" bordercolor='#FF6600'/></a></div>
-            </div></th>
-            <th width="106" align="left" valign="top" scope="col">&nbsp;</th>
-        </tr>
-          <tr>
-            <th height="24" align="left" valign="top" scope="col">&nbsp;</th>
-            <th align="center" valign="top" bgcolor="#333333" scope="col"><a href="excluir.php?<? echo"id=$id";?>">EXCLUIR</a></th>
-        </tr>
-        </table>
-    </th>
-  </tr>
-</table>
-<hr width="95%" color="#CCCCCC" />
-<? } ?>
-
+<script language="Javascript" type="text/javascript">
+  parent.document.getElementById("klauscid").height = document.getElementById("tamanho").scrollHeight + 1; //40: Margem Superior e Inferior, somadas
+</script>
