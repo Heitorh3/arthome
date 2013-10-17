@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>UPLOAD</title>
+<title>Cad. SlideShow</title>
 <script type="text/javascript" src="js/swfobject.js"></script>
 <script type="text/javascript" src="js/multiUpload.js"></script>
 <link href="../../css/css.css" rel="stylesheet" type="text/css" />
