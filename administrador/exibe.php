@@ -38,7 +38,10 @@ if (isset($_GET['pageNum_fotos'])) {
 }
 $startRow_fotos = $pageNum_fotos * $maxRows_fotos;
 
+       
 mysql_select_db($database_galeria, $galeria);
+
+
 $query_fotos = "SELECT * FROM fotos ORDER BY id DESC";
 $query_limit_fotos = sprintf("%s LIMIT %d, %d", $query_fotos, $startRow_fotos, $maxRows_fotos);
 $fotos = mysql_query($query_limit_fotos, $galeria) or die(mysql_error());
@@ -71,7 +74,7 @@ $queryString_fotos = sprintf("&totalRows_fotos=%d%s", $totalRows_fotos, $querySt
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>FOTOS CIDADE</title>
+<title>Fotos dos Produtos</title>
 </head>
 	<link rel="stylesheet" type="text/css" href="../style-projects-jquery.css" />    
     
@@ -90,7 +93,7 @@ $queryString_fotos = sprintf("&totalRows_fotos=%d%s", $totalRows_fotos, $querySt
    	<style type="text/css">
 	/* jQuery lightBox plugin - Gallery style */
 	#gallery {
-		background-color: #0099FF;
+		background-color: #E2E1CF;
 		padding: 10px;
 		width: 500px;
 	}
@@ -121,7 +124,7 @@ $queryString_fotos = sprintf("&totalRows_fotos=%d%s", $totalRows_fotos, $querySt
   <tr>
     <td><div width="500" align="center" id="gallery">
       <?php do { ?>
-          <a href="imagens/<?php echo $row_fotos['foto']; ?>"><img src="imagens/<?php echo $row_fotos['foto']; ?>" width="150" height="150" /></a>
+          <a href="galeria/imagens/<?php echo $row_fotos['foto']; ?>"><img src="galeria/imagens/<?php echo $row_fotos['foto']; ?>" width="150" height="150" /></a>
       <?php } while ($row_fotos = mysql_fetch_assoc($fotos)); ?></div></td>
   </tr>
 </table>

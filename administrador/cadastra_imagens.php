@@ -1,16 +1,30 @@
 <?php include('verifica.php'); if ($_SESSION['tipo'] == 'Administrador') { ?>
 <?php
-$conn = mysql_connect('localhost', 'root', 'floresta');
-$db   = mysql_select_db('db_arthome');
+
+	include('../classes/conexao.php');
+
+//$conn = mysql_connect('localhost', 'root', 'floresta');
+//$db   = mysql_select_db('db_arthome');
 
 $file = $_FILES['Filedata'];
 
 $album = (int) $_POST['id'];
 $filename = $file['name'];
 
-$query = "INSERT INTO fotos (id, foto) VALUES ('$id', '$filename')";
+$query = "INSERT INTO fotos (foto) VALUES ('$filename')";
 
-mysql_query($query);
+	$conexao = new Conexao();
+	
+		$conexao->criaConexao();
+
+	$consulta = mysql_query($query);
+		if(! $consulta) {
+			echo 'ERRO: '.mysql_error();
+			echo '<br /> Número: '.mysql_errno(); 
+		}
+
+
+//mysql_query($query);
 
 $path     = $file['tmp_name'];
 $new_path = "galeria/imagens/".$file['name'];
@@ -33,5 +47,9 @@ $thumb = str_replace(".$ext", "_thumb.$ext", $new_path); // Substitui a extensã
 $original->resize(100, 75, 'inside', 'down')->saveToFile($thumb, null, 90); // Redimensiona e salva
 
 echo mysql_insert_id(); // Retorna o id da foto
+
+//Encerra a conexão com o Banco de dados
+$conexao->fechaConexao();
+
 ?>
 <?php } else { header('Location: ../login_administrador.php'); } ?>

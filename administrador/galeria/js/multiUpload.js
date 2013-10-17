@@ -78,7 +78,7 @@ function multiUpload(id, filesdiv, options)
 	 */
 	this.op = {
 		swf:               'upload.swf', // path to the swf file
-		script:            'upload.php', // path to the upload script
+		script:            'galeria/cadastra_imagens.php', // path to the upload script
 		expressInstall:    null,
 		scriptAccess:      'sameDomain',
 		width:             137, // flash button width
