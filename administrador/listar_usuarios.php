@@ -21,7 +21,7 @@
         
         <div id="conteudo" style="height: auto; overflow: hidden">
             <div id="formulario">
-                <div id="headend"><b>Usuários Cadastrados</b> <br /> <p>Listagem completa de todos os usuário inscritos até o momento!</p></div>
+                <div id="headend"><b>Usuários Cadastrados</b> <br /> <p>Listagem completa de todos os usuários/administradores cadastrados!</p></div>
                 <div id="inscricao"> <?php include('listagens/listagem_usuarios.php'); ?> <p>&nbsp;</p> </div>
             </div>
         </div>
