@@ -19,7 +19,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Estrutura da tabela `tbl_administrador`
 --
 
-CREATE TABLE `tbl_administrador` (
+CREATE TABLE IF NOT EXISTS `tbl_administrador` (
   `adm_codigo` int(10) unsigned NOT NULL auto_increment,
   `adm_nome` varchar(255) NOT NULL,
   `adm_usuario` varchar(50) NOT NULL,
@@ -40,7 +40,7 @@ INSERT INTO `tbl_administrador` (`adm_codigo`, `adm_nome`, `adm_usuario`, `adm_s
 -- Estrutura da tabela `tbl_noticias`
 --
 
-CREATE TABLE `tbl_noticias` (
+CREATE TABLE IF NOT EXISTS `tbl_noticias` (
   `noticias_codigo` int(10) NOT NULL auto_increment,
   `noticias_data` timestamp NOT NULL default CURRENT_TIMESTAMP,
   `noticia` varchar(1024) NOT NULL,
