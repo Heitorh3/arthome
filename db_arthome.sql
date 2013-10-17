@@ -7,6 +7,15 @@
 -- Vers�o do Servidor: 5.0.51
 -- Vers�o do PHP: 5.2.5
 
+CREATE USER 'usr_arthome'@'localhost' IDENTIFIED BY  'hRuMcWGQ2YCWdGba';
+
+GRANT USAGE ON * . * TO  'usr_arthome'@'localhost' IDENTIFIED BY  'hRuMcWGQ2YCWdGba' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0 ;
+
+
+GRANT ALL PRIVILEGES ON  `db\_arthome` . * TO  'usr_arthome'@'localhost' WITH GRANT OPTION ;
+
+
+
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 --
