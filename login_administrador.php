@@ -29,10 +29,11 @@
                   </td>
                 </tr>
                 </table>
-                <br />
-                <?php if($_REQUEST['error'] == 'ok') { ?>
-                	<div style="background-color: #FFA4A4; border: 1px solid #990000; display: table-cell; height: 30px; width: 280px; padding-left: 5px; vertical-align: middle;"> <p style="color: #990000"> <b>Usuário ou senha inválidos!</b> </p> </div>
-            	<?php } ?>
+                <br/>  
+                  <?php if(isset($_REQUEST['error'])){?>
+                    <? }  elseif (condition) {?>
+                        <div style="background-color: #FFA4A4; border: 1px solid #990000; display: table-cell; height: 30px; width: 280px; padding-left: 5px; vertical-align: middle;"> <p style="color: #990000"> <b>Usuário ou senha inválidos!</b> </p> </div>                    
+                  <?php } ?>
                 <br /> <br /> <br /> <br />
                 </form>
             </div>

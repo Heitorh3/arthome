@@ -7,8 +7,8 @@
 	$senha   = $_REQUEST['senha'];
 	$status = 1;
 	
-	if($_REQUEST['acao'] == 'Entrar')
-	{
+	if($_REQUEST['acao'] == 'Entrar'){
+		
 		$sql = "SELECT adm_codigo, adm_nome, adm_status FROM tbl_administrador
 				WHERE adm_usuario = '" .anti_sql_injection($usuario). "' AND adm_senha = '" .anti_sql_injection($senha). "' AND adm_status = '" .anti_sql_injection($status). "'";
 		
