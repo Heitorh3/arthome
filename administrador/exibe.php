@@ -76,7 +76,8 @@ $queryString_fotos = sprintf("&totalRows_fotos=%d%s", $totalRows_fotos, $querySt
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Fotos dos Produtos</title>
 </head>
-	<link rel="stylesheet" type="text/css" href="../style-projects-jquery.css" />    
+	<link rel="stylesheet" type="text/css" href="../style-projects-jquery.css" /> 
+  <link href="../css/css.css" rel="stylesheet" type="text/css" /> 
     
     <!-- Arquivos utilizados pelo jQuery lightBox plugin -->
     <script type="text/javascript" src="galeria/js/jquery.js"></script>
@@ -119,22 +120,28 @@ $queryString_fotos = sprintf("&totalRows_fotos=%d%s", $totalRows_fotos, $querySt
 }
     </style>
 <body>
-<div id="tamanho">
-<table width="500" border="0" align="center">
-  <tr>
-    <td><div width="500" align="center" id="gallery">
-      <?php do { ?>
-          <a href="galeria/imagens/<?php echo $row_fotos['foto']; ?>"><img src="galeria/imagens/<?php echo $row_fotos['foto']; ?>" width="150" height="150" /></a>
-      <?php } while ($row_fotos = mysql_fetch_assoc($fotos)); ?></div></td>
-  </tr>
-</table>
-<table width="500" border="0" align="center">
-  <tr>
-    <td width="272"><div align="center"><a href="<?php printf("%s?pageNum_fotos=%d%s", $currentPage, max(0, $pageNum_fotos - 1), $queryString_fotos); ?>">&lt;&lt;&lt; ANTERIOR</a><a href="<?php printf("%s?pageNum_fotos=%d%s", $currentPage, $totalPages_fotos, $queryString_fotos); ?>"></a></div></td>
-    <td width="218"><div align="center"><span class="style1">TOTAL DE FOTOS:&nbsp;<span class="style4"><?php echo $totalRows_fotos ?> </span></span></div></td>
-    <td width="218"><div align="center"><a href="<?php printf("%s?pageNum_fotos=%d%s", $currentPage, $totalPages_fotos, $queryString_fotos); ?>">APRÓXIMO &gt;&gt;&gt;</a></div></td>
-  </tr>
-</table>
+   <div id="pagina">
+      <?php include('includes/topo.php'); ?>
+      <?php include('includes/menu.php'); ?>
+          <div id="tamanho">
+            <table width="500" border="0" align="center">
+              <tr>
+                <td><div width="100%" align="center" id="gallery">
+                  <?php do { ?>
+                      <a href="galeria/imagens/<?php echo $row_fotos['foto']; ?>"><img src="galeria/imagens/<?php echo $row_fotos['foto']; ?>" width="150" height="150" /></a>
+                  <?php } while ($row_fotos = mysql_fetch_assoc($fotos)); ?></div></td>
+              </tr>
+            </table>
+            <table width="500" border="0" align="center">
+              <tr>
+                <td width="272"><div align="center"><a href="<?php printf("%s?pageNum_fotos=%d%s", $currentPage, max(0, $pageNum_fotos - 1), $queryString_fotos); ?>">&lt;&lt;&lt; ANTERIOR</a><a href="<?php printf("%s?pageNum_fotos=%d%s", $currentPage, $totalPages_fotos, $queryString_fotos); ?>"></a></div></td>
+                <td width="218"><div align="center"><span class="style1">TOTAL DE FOTOS:&nbsp;<span class="style4"><?php echo $totalRows_fotos ?> </span></span></div></td>
+                <td width="218"><div align="center"><a href="<?php printf("%s?pageNum_fotos=%d%s", $currentPage, $totalPages_fotos, $queryString_fotos); ?>">APRÓXIMO &gt;&gt;&gt;</a></div></td>
+              </tr>
+            </table>
+          </div>
+    </div>
+    <?php include('includes/rodape.php'); ?>
 </body>
 </html>
 <?php

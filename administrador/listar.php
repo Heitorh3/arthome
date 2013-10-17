@@ -1,3 +1,4 @@
+<?php include('verifica.php'); if ($_SESSION['tipo'] == 'Administrador') { ?>
 <?php require_once('galeria/Connections/galeria.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
@@ -77,30 +78,35 @@ $queryString_fotos = sprintf("&totalRows_fotos=%d%s", $totalRows_fotos, $querySt
 <title>Fotos dos Produtos</title>
 </head>
 	<link rel="stylesheet" type="text/css" href="../style-projects-jquery.css" />    
-    
+  <link href="../css/css.css" rel="stylesheet" type="text/css" />
     <!-- Arquivos utilizados pelo jQuery lightBox plugin -->
     <script type="text/javascript" src="galeria/js/jquery.js"></script>
     <script type="text/javascript" src="galeria/js/jquery.lightbox-0.5.js"></script>
     <link rel="stylesheet" type="text/css" href="galeria/css/jquery.lightbox-0.5.css" media="screen" />
     <!-- / fim dos arquivos utilizados pelo jQuery lightBox plugin -->
 <body>
-<div id="tamanho">
-    <table width="500" border="0" align="center">
-      <tr>
-        <td>
-          <div width="500" align="center">
-            <?php do { ?>
-                <a href="excluir.php?id=<?php echo $row_fotos['id']; ?>&arq=galeria/imagens/<?php echo $row_fotos['foto']; ?>"><img src="galeria/imagens/<?php echo $row_fotos['foto']; ?>" width="150" height="150"/></a>
-            <?php } while ($row_fotos = mysql_fetch_assoc($fotos)); ?>                          
-          </div>
-        </td>
-      </tr>      
-    </table>
+  <div id="pagina">
+      <?php include('includes/topo.php'); ?>
+      <?php include('includes/menu.php'); ?>
+    <div id="tamanho">
+        <table width="800" border="0" align="center">
+          <tr>
+            <td>
+              <div width="100%" align="center">
+                <?php do { ?>
+                    <a href="excluir.php?id=<?php echo $row_fotos['id']; ?>&arq=galeria/imagens/<?php echo $row_fotos['foto']; ?>"><img src="galeria/imagens/<?php echo $row_fotos['foto']; ?>" width="150" height="150"/></a>
+                <?php } while ($row_fotos = mysql_fetch_assoc($fotos)); ?>                          
+              </div>
+            </td>
+          </tr>      
+        </table>
+    </div>
+    <?php include('includes/rodape.php'); ?>
+  </div>  
 </body>
 </html>
-<?php
-mysql_free_result($fotos);
-?>
+<?php mysql_free_result($fotos); ?>
 <script language="Javascript" type="text/javascript">
   parent.document.getElementById("klauscid").height = document.getElementById("tamanho").scrollHeight + 1; //40: Margem Superior e Inferior, somadas
 </script>
+<?php } else { header('Location: ../login_administrador.php'); } ?>
