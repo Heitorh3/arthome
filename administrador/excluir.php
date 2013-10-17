@@ -4,8 +4,7 @@
 	include('../classes/conexao.php');
 	
 	    $id_foto = $_REQUEST['id'];
-		
-		//$sql = "INSERT INTO tbl_noticias (noticia)	VALUES('" .$noticia. "')";
+	    $filename = $_REQUEST['arq'];
 
 		$sql = "DELETE FROM fotos where id='" .$id_foto. "';";
 		
@@ -21,6 +20,9 @@
 		
 		$conexao->fechaConexao();
 		
-		header('Location: listar.php');	
+		unlink("$filename");
 
+		unlink(str_replace(".jpg", "_thumb.jpg", "$filename"));
+
+		header('Location: listar.php');	
 ?>

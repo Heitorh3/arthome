@@ -90,7 +90,7 @@ $queryString_fotos = sprintf("&totalRows_fotos=%d%s", $totalRows_fotos, $querySt
         <td>
           <div width="500" align="center">
             <?php do { ?>
-                <a href="excluir.php?id=<?php echo $row_fotos['id']; ?>"><img src="galeria/imagens/<?php echo $row_fotos['foto']; ?>" width="150" height="150"/></a>
+                <a href="excluir.php?id=<?php echo $row_fotos['id']; ?>&arq=galeria/imagens/<?php echo $row_fotos['foto']; ?>"><img src="galeria/imagens/<?php echo $row_fotos['foto']; ?>" width="150" height="150"/></a>
             <?php } while ($row_fotos = mysql_fetch_assoc($fotos)); ?>                          
           </div>
         </td>
