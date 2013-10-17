@@ -1,6 +1,6 @@
 <?php
 
-	$conexao = mysql_connect('localhost', 'root', 'floresta');
+	$conexao = mysql_connect('localhost', 'usr_arthome', 'hRuMcWGQ2YCWdGba');
 	if(! $conexao) {
 		print('ERRO de conexão com o banco de dados! ' . mysql_error());
 	}

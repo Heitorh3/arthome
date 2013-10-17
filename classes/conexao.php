@@ -4,8 +4,8 @@
 	
 		var $dbserver = 'localhost';
 		var $dbnome   = 'db_arthome';
-		var $dbuser   = 'root';
-		var $dbpass   = 'floresta';
+		var $dbuser   = 'usr_arthome';
+		var $dbpass   = 'hRuMcWGQ2YCWdGba';
 		var $conexao  = '';
 		var $banco    = '';
 		
