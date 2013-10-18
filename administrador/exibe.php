@@ -1,4 +1,5 @@
 <?php require_once('galeria/Connections/galeria.php'); ?>
+
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -121,8 +122,8 @@ $queryString_fotos = sprintf("&totalRows_fotos=%d%s", $totalRows_fotos, $querySt
     </style>
 <body>
    <div id="pagina">
-      <?php include('includes/topo.php'); ?>
-      <?php include('includes/menu.php'); ?>
+      <?php include('../includes/topo.php'); ?>
+      <?php include('../includes/menu.php'); ?>
           <div id="tamanho">
             <table width="500" border="0" align="center">
               <tr>
@@ -141,7 +142,7 @@ $queryString_fotos = sprintf("&totalRows_fotos=%d%s", $totalRows_fotos, $querySt
             </table>
           </div>
     </div>
-    <?php include('includes/rodape.php'); ?>
+    <?php include('../includes/rodape.php'); ?>
 </body>
 </html>
 <?php
