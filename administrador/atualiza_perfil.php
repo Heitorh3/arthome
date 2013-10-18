@@ -37,7 +37,7 @@
         <div id="conteudo" style="height: auto; overflow: hidden">
         	<div id="formulario">
             	<div id="headend">
-                    <?php if($_REQUEST['id'] == $codigo && $_REQUEST['f'] == 'ok') { ?>
+                    <?php if($_REQUEST['id'] == $codigo) { ?>
                     	<b>Perfil Atualizado com sucesso!</b>
 					<?php } else { ?>
                     	<b>Atualizar Perfil</b>
