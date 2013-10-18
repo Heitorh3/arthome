@@ -11,12 +11,24 @@ $file = $_FILES['Filedata'];
 $album = (int) $_POST['id'];
 $filename = $file['name'];
 
-$query = "INSERT INTO fotos (foto) VALUES ('$filename')";
-
-	$conexao = new Conexao();
+$conexao = new Conexao();
 	
-		$conexao->criaConexao();
+	$conexao->criaConexao();
 
+$sql = "SELECT COALESCE(MAX(ID),0)+1 IDFOTO FROM FOTOS;";
+
+$row = mysql_fetch_assoc(mysql_query($sql));
+
+//pega somente a extenção da imagen
+$res = substr($filename,-4);
+
+//$new_filename = $row['MAX(id)+1'] . $res;
+
+$new_filename = $row['IDFOTO'] . $res;
+
+$query = "INSERT INTO fotos (foto, foto_origi) VALUES ('$new_filename','$filename');";
+
+ 
 	$consulta = mysql_query($query);
 		if(! $consulta) {
 			echo 'ERRO: '.mysql_error();
@@ -27,7 +39,9 @@ $query = "INSERT INTO fotos (foto) VALUES ('$filename')";
 //mysql_query($query);
 
 $path     = $file['tmp_name'];
-$new_path = "galeria/imagens/".$file['name'];
+//$new_path = "galeria/imagens/".$file['name'];
+
+$new_path = "galeria/imagens/".$new_filename;
 
 move_uploaded_file($path, $new_path);
 

@@ -94,6 +94,7 @@ CREATE TABLE IF NOT EXISTS `tbl_albums_photos` (
 CREATE TABLE IF NOT EXISTS `fotos` (
   `id` int(30) NOT NULL auto_increment,
   `foto` char(200) NOT NULL,
+  `foto_origi` char(200) NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
