@@ -124,7 +124,8 @@ $queryString_fotos = sprintf("&totalRows_fotos=%d%s", $totalRows_fotos, $querySt
    <div id="pagina">
       <?php include('../includes/topo.php'); ?>
       <?php include('../includes/menu.php'); ?>
-          <div id="tamanho">
+        <div id="conteudo" style="height: auto; overflow: hidden;">          
+          <div id="inscricao">
             <table width="500" border="0" align="center">
               <tr>
                 <td><div width="100%" align="center" id="gallery">
@@ -141,8 +142,9 @@ $queryString_fotos = sprintf("&totalRows_fotos=%d%s", $totalRows_fotos, $querySt
               </tr>
             </table>
           </div>
-    </div>
-    <?php include('../includes/rodape.php'); ?>
+        </div>
+      <?php include('../includes/rodape.php'); ?>
+    </div>    
 </body>
 </html>
 <?php
