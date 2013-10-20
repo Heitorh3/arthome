@@ -74,13 +74,13 @@ if (!empty($_SERVER['QUERY_STRING'])) {
   }
 }
 $queryString_fotos = sprintf("&totalRows_fotos=%d%s", $totalRows_fotos, $queryString_fotos);
-?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Fotos dos Produtos</title>
-</head>
-	<link rel="stylesheet" type="text/css" href="../style-projects-jquery.css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>Fotos dos Produtos</title>
+</head>	
   <link href="css/css.css" rel="stylesheet" type="text/css" /> 
     
     <!-- Arquivos utilizados pelo jQuery lightBox plugin -->
@@ -90,39 +90,39 @@ $queryString_fotos = sprintf("&totalRows_fotos=%d%s", $totalRows_fotos, $querySt
     <!-- / fim dos arquivos utilizados pelo jQuery lightBox plugin -->
     
     <!-- Ativando o jQuery lightBox plugin -->
-    <script type="text/javascript">
-    $(function() {
-        $('#gallery a').lightBox();
-    });
-    </script>
-   	<style type="text/css">
-	/* jQuery lightBox plugin - Gallery style */
-	#gallery {
-		background-color: #E2E1CF;
-		padding: 10px;
-		width: 500px;
-	}
-	#gallery ul { list-style: none; }
-	#gallery ul li { display: inline; }
-	#gallery ul img {
-		border: 5px solid #3e3e3e;
-		border-width: 5px 5px 20px;
-	}
-	#gallery ul a:hover img {
-		border: 5px solid #fff;
-		border-width: 5px 5px 20px;
-		color: #fff;
-	}
-	#gallery ul a:hover { color: #fff; }
-	.style1 {
-	font-size: 12px;
-	font-weight: bold;
-}
-.style4 {
-	font-size: 14px;
-	font-family: arial;
-}
-    </style>
+  <script type="text/javascript">
+        $(function() {
+            $('#gallery a').lightBox();
+        });
+        </script>
+       	<style type="text/css">
+    	/* jQuery lightBox plugin - Gallery style */
+    	#gallery {
+    		background-color: #E2E1CF;
+    		padding: 10px;
+    		width: 500px;
+    	}
+    	#gallery ul { list-style: none; }
+    	#gallery ul li { display: inline; }
+    	#gallery ul img {
+    		border: 5px solid #3e3e3e;
+    		border-width: 5px 5px 20px;
+    	}
+    	#gallery ul a:hover img {
+    		border: 5px solid #fff;
+    		border-width: 5px 5px 20px;
+    		color: #fff;
+    	}
+    	#gallery ul a:hover { color: #fff; }
+    	.style1 {
+    	font-size: 12px;
+    	font-weight: bold;
+    }
+    .style4 {
+    	font-size: 14px;
+    	font-family: arial;
+    }
+  </style>
 <body>
    <div id="pagina">
       <?php include('includes/topo.php'); ?>
