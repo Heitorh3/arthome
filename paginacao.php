@@ -2,7 +2,7 @@
 
 // Configuração do script
 // ========================
-$_BS['PorPagina'] = 5; // Número de registros por página
+$_BS['PorPagina'] = 8; // Número de registros por página
 
 // Conexão com o MySQL
 // ========================
@@ -128,9 +128,9 @@ $conexao->fechaConexao();
             <table width="500" border="0">
               <tr>
                 <td><div width="10%" align="center" id="gallery">
-                  <?php do { ?>
+                    <?php while ($row_fotos = mysql_fetch_assoc($query)){ ?>
                       <a href="administrador/galeria/imagens/<?php echo $row_fotos['foto']; ?>"><img src="administrador/galeria/imagens/<?php echo $row_fotos['foto']; ?>" width="150" height="150" /></a>
-                  <?php } while ($row_fotos = mysql_fetch_assoc($query)); ?></div></td>
+                    <?php } ?></div></td>
               </tr>
             </table>  
             <table width="500" border="0" align="center">
