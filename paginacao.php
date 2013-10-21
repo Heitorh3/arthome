@@ -29,7 +29,7 @@ $busca = mysql_real_escape_string($busca);
 // ============================================
 
 // Monta a consulta MySQL para saber quantos registros serão encontrados
-$sql = "SELECT COUNT(*) AS total FROM `fotos` WHERE `ativa` = 1 AND `foto_origi` LIKE '%".$busca."%';";
+$sql = "SELECT COUNT(*) AS total FROM `fotos` WHERE `ativa` = 1 AND ((`foto_origi` LIKE '%".$busca."%') OR ('%".$busca."%'));";
 // Executa a consulta
 $query = mysql_query($sql);
 // Salva o valor da coluna 'total', do primeiro registro encontrado pela consulta
@@ -51,7 +51,7 @@ $inicio = ($pagina - 1) * $_BS['PorPagina'];
 // ============================================
 
 // Monta outra consulta MySQL, agora a que fará a busca com paginação
-$sql = "SELECT * FROM `fotos` WHERE `ativa` = 1 AND `foto_origi` LIKE '%".$busca."%'; ";
+$sql = "SELECT * FROM `fotos` WHERE (`ativa` = 1) AND ((`foto_origi` LIKE '%".$busca."%') OR ('%".$busca."%')) ORDER BY `cadastro` DESC LIMIT ".$inicio.", ".$_BS['PorPagina'];
 // Executa a consulta
 $query = mysql_query($sql);
 
@@ -119,38 +119,36 @@ $conexao->fechaConexao();
   </style>
 	<title>ArtHome</title>   
 </head>
-
 <body>
-
-	<div id="pagina"><br>
-		<?php include('includes/topo.php'); ?>
-		<?php include('includes/menu.php'); ?>
-
-		<div id="conteudo" align="center">
-			<table width="500" border="0">
+   <div id="pagina">
+      <?php include('includes/topo.php'); ?>
+      <?php include('includes/menu.php'); ?>
+        <div id="conteudo" style="height: auto; overflow: hidden;">          
+          <div id="inscricao">
+            <table width="500" border="0">
               <tr>
                 <td><div width="10%" align="center" id="gallery">
                   <?php do { ?>
                       <a href="administrador/galeria/imagens/<?php echo $row_fotos['foto']; ?>"><img src="administrador/galeria/imagens/<?php echo $row_fotos['foto']; ?>" width="150" height="150" /></a>
                   <?php } while ($row_fotos = mysql_fetch_assoc($query)); ?></div></td>
               </tr>
-            </table>
+            </table>  
             <table width="500" border="0" align="center">
-            	<tr>
+              <tr>
                 <td width="272"><div align="center">
-			            <?php 
+                	<?php 
 			            // Começa a exibição dos paginadores
 							if ($total > 0) {
 							for($n = 1; $n <= $paginas; $n++) {
 							echo '<a href="?consulta='.$_GET['consulta'].'&pagina='.$n.'">'.$n.'</a>&nbsp;&nbsp;';
 							}
-						}?></div>
-				</td>
-				</tr>
-			</table>
-			</div></br></br>  
-		  <?php include('includes/rodape.php');?>
-		</div>
-	</div>
+						}?>  
+                </td>
+              </tr>
+            </table>         
+          </div></br></br>
+        </div>
+      <?php include('includes/rodape.php'); ?>
+    </div>    
 </body>
 </html>
