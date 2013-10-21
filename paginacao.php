@@ -58,9 +58,10 @@ $query = mysql_query($sql);
 // ============================================
 
 // Começa a exibição dos resultados
-echo "<p>Resultados ".min($total, ($inicio + 1))." - ".min($total, ($inicio + $_BS['PorPagina']))." de ".$total." resultados encontrados para '".$_GET['consulta']."'</p>";
+//echo "<p>Resultados ".min($total, ($inicio + 1))." - ".min($total, ($inicio + $_BS['PorPagina']))." de ".$total." resultados encontrados para '".$_GET['consulta']."'</p>";
 // <p>Resultados 1 - 20 de 138 resultados encontrados para 'minha busca'</p>
 
+/*
 echo "<ul>";
 while ($resultado = mysql_fetch_assoc($query)) {
 $link = 'http://localhost/arthome/paginacao.php?id=' . $resultado['id'];
@@ -84,7 +85,72 @@ for($n = 1; $n <= $paginas; $n++) {
 echo '<a href="?consulta='.$_GET['consulta'].'&pagina='.$n.'">'.$n.'</a>&nbsp;&nbsp;';
 }
 }
+*/
 
 // ====(Fexa a conexão)====
 $conexao->fechaConexao();
 ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<link href="css/css.css" rel="stylesheet" type="text/css"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+	<!-- Arquivos utilizados pelo jQuery lightBox plugin -->
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.lightbox-0.5.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery.lightbox-0.5.css" />
+    <!-- / fim dos arquivos utilizados pelo jQuery lightBox plugin -->
+    
+    <!-- Ativando o jQuery lightBox plugin -->
+  <script type="text/javascript">
+        $(function() {
+            $('#gallery a').lightBox();
+        });
+  </script>
+  <style type="text/css">
+    	/* jQuery lightBox plugin - Gallery style */
+    	#gallery {
+    		background-color: #E2E1CF;
+    		padding: 10px;
+    		width: 660px;
+    	}    	
+  </style>
+	<title>ArtHome</title>   
+</head>
+
+<body>
+
+	<div id="pagina"><br>
+		<?php include('includes/topo.php'); ?>
+		<?php include('includes/menu.php'); ?>
+
+		<div id="conteudo" align="center">
+			<table width="500" border="0">
+              <tr>
+                <td><div width="10%" align="center" id="gallery">
+                  <?php do { ?>
+                      <a href="administrador/galeria/imagens/<?php echo $row_fotos['foto']; ?>"><img src="administrador/galeria/imagens/<?php echo $row_fotos['foto']; ?>" width="150" height="150" /></a>
+                  <?php } while ($row_fotos = mysql_fetch_assoc($query)); ?></div></td>
+              </tr>
+            </table>
+            <table width="500" border="0" align="center">
+            	<tr>
+                <td width="272"><div align="center">
+			            <?php 
+			            // Começa a exibição dos paginadores
+							if ($total > 0) {
+							for($n = 1; $n <= $paginas; $n++) {
+							echo '<a href="?consulta='.$_GET['consulta'].'&pagina='.$n.'">'.$n.'</a>&nbsp;&nbsp;';
+							}
+						}?></div>
+				</td>
+				</tr>
+			</table>
+			</div></br></br>  
+		  <?php include('includes/rodape.php');?>
+		</div>
+	</div>
+</body>
+</html>

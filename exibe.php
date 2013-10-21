@@ -4,7 +4,7 @@
      
 $currentPage = $_SERVER["PHP_SELF"];
 
-$maxRows_fotos = 18;
+$maxRows_fotos = 8;
 $pageNum_fotos = 0;
 
 if (isset($_GET['pageNum_fotos'])) {
@@ -51,6 +51,7 @@ if (!empty($_SERVER['QUERY_STRING'])) {
 }
 $queryString_fotos = sprintf("&totalRows_fotos=%d%s", $totalRows_fotos, $queryString_fotos);
 
+$conexao->fechaConexao();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -93,7 +94,17 @@ $queryString_fotos = sprintf("&totalRows_fotos=%d%s", $totalRows_fotos, $querySt
                       <a href="administrador/galeria/imagens/<?php echo $row_fotos['foto']; ?>"><img src="administrador/galeria/imagens/<?php echo $row_fotos['foto']; ?>" width="150" height="150" /></a>
                   <?php } while ($row_fotos = mysql_fetch_assoc($fotos)); ?></div></td>
               </tr>
-            </table>            
+            </table>  
+            <table width="500" border="0" align="center">
+              <tr>
+                <td width="272"><div align="center">
+                  <a href="<?php printf("%s?pageNum_fotos=%d%s", $currentPage, max(0, $pageNum_fotos - 1), $queryString_fotos); ?>">&lt;&lt;&lt; ANTERIOR</a>
+                  <a href="<?php printf("%s?pageNum_fotos=%d%s", $currentPage, $totalPages_fotos, $queryString_fotos); ?>"></a></div></td>
+                <td width="218"><div align="center"><span class="style1">TOTAL DE FOTOS:&nbsp;<span class="style4"><?php echo $totalRows_fotos ?> </span></span></div></td>
+                <td width="218"><div align="center">
+                  <a href="<?php printf("%s?pageNum_fotos=%d%s", $currentPage, $totalPages_fotos, $queryString_fotos); ?>">APRÓXIMO &gt;&gt;&gt;</a></div></td>
+              </tr>
+            </table>         
           </div></br></br>
         </div>
       <?php include('includes/rodape.php'); ?>
