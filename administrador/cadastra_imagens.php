@@ -26,7 +26,7 @@ $res = substr($filename,-4);
 
 $new_filename = $row['IDFOTO'] . $res;
 
-$query = "INSERT INTO fotos (foto, foto_origi) VALUES ('$new_filename','$filename');";
+$query = "INSERT INTO fotos (foto, foto_origi,ativa) VALUES ('$new_filename','$filename',1);";
 
  
 	$consulta = mysql_query($query);
