@@ -63,7 +63,7 @@ $queryString_fotos = sprintf("&totalRows_fotos=%d%s", $totalRows_fotos, $querySt
     <!-- Arquivos utilizados pelo jQuery lightBox plugin -->
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/jquery.lightbox-0.5.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/jquery.lightbox-0.5.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.lightbox-0.5.css" />
     <!-- / fim dos arquivos utilizados pelo jQuery lightBox plugin -->
     
     <!-- Ativando o jQuery lightBox plugin -->
@@ -86,15 +86,15 @@ $queryString_fotos = sprintf("&totalRows_fotos=%d%s", $totalRows_fotos, $querySt
       <?php include('includes/menu.php'); ?>
         <div id="conteudo" style="height: auto; overflow: hidden;">          
           <div id="inscricao">
-            <table width="500" border="0" align="center">
+            <table width="500" border="0">
               <tr>
-                <td><div width="100%" align="center" id="gallery">
+                <td><div width="10%" align="center" id="gallery">
                   <?php do { ?>
                       <a href="administrador/galeria/imagens/<?php echo $row_fotos['foto']; ?>"><img src="administrador/galeria/imagens/<?php echo $row_fotos['foto']; ?>" width="150" height="150" /></a>
                   <?php } while ($row_fotos = mysql_fetch_assoc($fotos)); ?></div></td>
               </tr>
             </table>            
-          </div>
+          </div></br></br>
         </div>
       <?php include('includes/rodape.php'); ?>
     </div>    
