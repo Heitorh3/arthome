@@ -129,7 +129,7 @@ $conexao->fechaConexao();
               <tr>
                 <td><div width="10%" align="center" id="gallery">
                     <?php while ($row_fotos = mysql_fetch_assoc($query)){ ?>
-                      <a href="administrador/galeria/imagens/<?php echo $row_fotos['foto']; ?>"><img src="administrador/galeria/imagens/<?php echo $row_fotos['foto']; ?>" width="150" height="150" /></a>
+                      <a href="administrador/galeria/imagens/<?php echo $row_fotos['foto']; ?>"><img src="administrador/galeria/imagens/<?php echo $row_fotos['foto']; ?>" width="110" height="110" /></a>
                     <?php } ?></div></td>
               </tr>
             </table>  
