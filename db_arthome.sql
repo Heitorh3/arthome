@@ -100,3 +100,17 @@ CREATE TABLE IF NOT EXISTS `fotos` (
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
+
+--
+-- Estrutura da tabela `tbl_slide_show`
+--
+
+
+CREATE TABLE IF NOT EXISTS `tbl_slide_show` (
+  `id` int(30) NOT NULL auto_increment,
+  `foto` char(200) NOT NULL,
+  `foto_origi` char(200) NOT NULL,
+  `ativa` BOOL NOT NULL,
+  `cadastro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
