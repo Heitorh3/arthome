@@ -49,9 +49,9 @@
                 <div id="headend"><b>Cadastrar Imagens</b> <br /> <p>Espaço reservado para o cadastro de imagens de novos produtos!</p></div>
                 <div id="inscricao">                                                       
                     <div id="uploader"></div>
-                    <div align="left">
-                        Selecione um Album
+                    <div align="left">                        
                         <select name="album_id" id="album_id" style="margin: 15px 0px 0px 20px; width: 190px; height:25px;">
+                            <option selected value="Selecione">Selecione!</option
                             <?php while ($row_albums = mysql_fetch_assoc($query)){ ?>                
                                 <option value=<?php echo $row_albums['id']; ?>><?php echo $row_albums['title']; ?></option>
                             <?php } ?>

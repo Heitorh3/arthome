@@ -74,6 +74,26 @@ CREATE TABLE IF NOT EXISTS `tbl_albums` (
 )ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 --
+-- Cadastrando os albums `tbl_albuns`
+--
+
+INSERT INTO tbl_albums (title) VALUES ('Vasos');
+INSERT INTO tbl_albums (title) VALUES ('Flores, arvores e arranjos');
+INSERT INTO tbl_albums (title) VALUES ('Cachepó');
+INSERT INTO tbl_albums (title) VALUES ('Esculturas');
+INSERT INTO tbl_albums (title) VALUES ('Centros de mesa');
+INSERT INTO tbl_albums (title) VALUES ('Castiçais');
+INSERT INTO tbl_albums (title) VALUES ('Quadros');
+INSERT INTO tbl_albums (title) VALUES ('Espelhos');
+INSERT INTO tbl_albums (title) VALUES ('Abajur e lanternas decorativas');
+INSERT INTO tbl_albums (title) VALUES ('Mesas de apoio');
+INSERT INTO tbl_albums (title) VALUES ('Gaveteiros e baús');
+INSERT INTO tbl_albums (title) VALUES ('Caixas decorativas');
+INSERT INTO tbl_albums (title) VALUES ('Cofres infantis decorativos');
+INSERT INTO tbl_albums (title) VALUES ('Porta retratos'); 
+INSERT INTO tbl_albums (title) VALUES ('Bandeijas');  
+
+--
 -- Estrutura da tabela `tbl_albums_photos`
 --
 

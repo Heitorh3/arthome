@@ -3,13 +3,12 @@
 
 	include('../classes/conexao.php');
 
-//$conn = mysql_connect('localhost', 'root', 'floresta');
-//$db   = mysql_select_db('db_arthome');
-
 $file = $_FILES['Filedata'];
 
 $album = (int) $_POST['id'];
 $filename = $file['name'];
+//Pega o id do album
+$album_id = addslashes($_POST['album_id']);
 
 $conexao = new Conexao();
 	
@@ -26,7 +25,7 @@ $res = substr($filename,-4);
 
 $new_filename = $row['IDFOTO'] . $res;
 
-$query = "INSERT INTO fotos (foto, foto_origi,ativa) VALUES ('$new_filename','$filename',1);";
+$query = "INSERT INTO fotos (foto, foto_origi,ativa,album_id) VALUES (('$new_filename'),('$filename'),(1),('$album_id'));";
 
  
 	$consulta = mysql_query($query);
