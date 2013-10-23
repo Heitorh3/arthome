@@ -18,11 +18,11 @@
         	<div id="headend">
             	<?php if($_REQUEST['t'] == 'not') { ?>
                 	<b>Noticia cadastrada com sucesso!</b> <br />
-                    <br /> <a class="linkcss" href="index.php">Voltar</a>
+                    <br /> <a class="linkcss" href="cadastrar_novidade.php">Voltar</a>
                     </div> 
                 <?php } else if ($_REQUEST['t'] == 'albun') { ?>
                     <b>Album cadastrado com sucesso!</b> <br />
-                    <br /> <a class="linkcss" href="index.php">Voltar</a>
+                    <br /> <a class="linkcss" href="cadastra_album.php">Voltar</a>
                     </div> 
                 <?php } else { ?>
                 	<b>Administrador cadastrado com sucesso!</b> <br />
