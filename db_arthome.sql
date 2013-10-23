@@ -68,8 +68,7 @@ INSERT INTO `tbl_noticias` (`noticia`) VALUES ('Venha conferir as novidades da n
 
 CREATE TABLE IF NOT EXISTS `tbl_albums` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(50) NOT NULL,
-  `description` text NOT NULL,
+  `title` varchar(50) NOT NULL,  
   `added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 )ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
@@ -97,6 +96,7 @@ CREATE TABLE IF NOT EXISTS `fotos` (
   `foto_origi` char(200) NOT NULL,
   `ativa` BOOL NOT NULL,
   `cadastro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `album_id` INT NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 

@@ -12,24 +12,15 @@
 	<div id="pagina">
     	<?php include('../includes/topo.php'); ?>
 		<?php include('includes/menu.php'); ?>
-        
+        <?php $erro  = $_REQUEST['msg'];?>
+
         <div id="conteudo" style="height: auto; overflow: hidden;">
         	<div id="formulario">
         	<div id="headend">
-            	<?php if($_REQUEST['t'] == 'not') { ?>
-                	<b>Noticia cadastrada com sucesso!</b> <br />
-                    <br /> <a class="linkcss" href="index.php">Voltar</a>
-                    </div> 
-                <?php } else if ($_REQUEST['t'] == 'albun') { ?>
-                    <b>Album cadastrado com sucesso!</b> <br />
-                    <br /> <a class="linkcss" href="index.php">Voltar</a>
-                    </div> 
-                <?php } else { ?>
-                	<b>Administrador cadastrado com sucesso!</b> <br />
-            		<p>Para visualizar a listagem de todos os usuários clique <a class="linkcss" href="listar_usuarios.php">aqui</a>!</p>
-                    <br /> <a class="linkcss" href="cadastra_avaliador.php">Voltar</a>
-                    <br /> <br />
-                    </div>
+            	<?php if($_REQUEST['t'] == 'error') { ?>
+                	<b>Houve algum erro na ação executada!</b> <br />
+                    <br/><b>Código do erro: <?php echo "$erro" ?></b></a>
+                    </div>                 
                 <?php } ?>
             </div>
         </div>
