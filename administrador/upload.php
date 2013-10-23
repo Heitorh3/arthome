@@ -1,50 +1,69 @@
 <?php include('verifica.php'); if ($_SESSION['tipo'] == 'Administrador') { ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Arthome - Upload</title>
-<script type="text/javascript" src="galeria/js/swfobject.js"></script>
-<script type="text/javascript" src="galeria/js/multiUpload.js"></script>
-<link href="../css/css.css" rel="stylesheet" type="text/css" />
-</head>
+<?php
 
-<style type="text/css">
-    @import "galeria/css/multiUpload.css";
-</style>
+	include('../classes/conexao.php');
 
-<body>
+//$conn = mysql_connect('localhost', 'root', 'floresta');
+//$db   = mysql_select_db('db_arthome');
 
-<script type="text/javascript">
-    var uploader = new multiUpload('uploader', 'uploader_files', {
-        swf:            'galeria/swf/multiUpload.swf', // 
-        script:         'cadastra_imagens.php',
-        expressInstall: 'galeria/swf/expressInstall.swf',
-        multi:          true
-    });
-</script>
+$file = $_FILES['Filedata'];
 
-    <div id="pagina">
-            <?php include('includes/topo.php'); ?>
-            <?php include('includes/menu.php'); ?>
+$album = (int) $_POST['id'];
+$filename = $file['name'];
 
-            <div id="conteudo" style="height: auto; overflow: hidden;">
-            <div id="formulario">
-                <div id="headend"><b>Cadastrar Imagens</b> <br /> <p>Espaço reservado para o cadastro de imagens de novos produtos!</p></div>
-                
-                <div id="inscricao">
-                                                       
-                            <div id="uploader"></div>
-                            <div id="uploader_files"></div>
+$conexao = new Conexao();
+	
+	$conexao->criaConexao();
 
-                    <div style="margin: 10px 0 0 160px; width: auto"> 
-                        <input class="botao" id="acao" name="acao" type="submit" onclick="javascript:uploader.startUpload();"value="Inserir" /> &nbsp; 
-                        <input class="botao" type="reset" onclick="javascript:uploader.clearUploadQueue();" value="Limpar" /> </div>               
-                </div>
-            </div>
-        </div>
-        <?php include('includes/rodape.php'); ?>
-    </div>
-</body>
-</html>
+$sql = "SELECT COALESCE(MAX(ID),0)+1 IDFOTO FROM FOTOS;";
+
+$row = mysql_fetch_assoc(mysql_query($sql));
+
+//pega somente a extenção da imagen
+$res = substr($filename,-4);
+
+//$new_filename = $row['MAX(id)+1'] . $res;
+
+$new_filename = $row['IDFOTO'] . $res;
+
+$query = "INSERT INTO fotos (foto, foto_origi,ativa) VALUES ('$new_filename','$filename',1);";
+
+ 
+	$consulta = mysql_query($query);
+		if(! $consulta) {
+			echo 'ERRO: '.mysql_error();
+			echo '<br /> Número: '.mysql_errno(); 
+		}
+
+
+//mysql_query($query);
+
+$path     = $file['tmp_name'];
+//$new_path = "galeria/imagens/".$file['name'];
+
+$new_path = "galeria/imagens/".$new_filename;
+
+move_uploaded_file($path, $new_path);
+
+// Vamos usar a biblioteca WideImage para o redimensionamento das imagens
+require("galeria/lib/WideImage/WideImage.php");
+
+// Carrega a imagem enviada
+$original = WideImage::load($new_path);
+
+// Redimensiona a imagem original para 1024x768 caso ela seja maior que isto e salva
+$original->resize(1024, 768, 'inside', 'down')->saveToFile($new_path, null, 90);
+
+// Cria a miniatura
+$ext = end(explode(".", $new_path)); // Pega a extensão do arquivo
+$thumb = str_replace(".$ext", "_thumb.$ext", $new_path); // Substitui a extensão
+
+$original->resize(100, 75, 'inside', 'down')->saveToFile($thumb, null, 90); // Redimensiona e salva
+
+echo mysql_insert_id(); // Retorna o id da foto
+
+//Encerra a conexão com o Banco de dados
+$conexao->fechaConexao();
+
+?>
 <?php } else { header('Location: ../login_administrador.php'); } ?>
