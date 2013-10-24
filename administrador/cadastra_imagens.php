@@ -19,26 +19,76 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Arthome - Upload</title>
+<title>Arthome</title>
 <script type="text/javascript" src="galeria/js/swfobject.js"></script>
 <script type="text/javascript" src="galeria/js/multiUpload.js"></script>
 <link href="../css/css.css" rel="stylesheet" type="text/css" />
 </head>
 
+<script type="text/javascript">
+        var uploader = "";
+
+        $(function() {
+            $("#album").submit(function() {
+                // Não continue caso já exista uma instância do multiUploader
+                if (typeof uploader == "object")
+                    return false;
+
+                var data = $(this).serialize(); // Dados do formulário
+
+                $(":text,textarea").attr("disabled", "disabled"); // Desabilitar os textos
+
+                // Envia o formulário via Ajax
+                $.ajax({
+                    type: "POST",
+                    url: "savealbum.php",
+                    data: data,
+                    cache: false,
+                    dataType: "json",
+                    success: function(json)
+                    {
+                        if (json.id > 0) // Se recebemos um id então o álbum foi salvo com sucesso
+                        {
+                            // Cria uma instância do multiUpload
+                            uploader = new multiUpload('uploader', 'uploader_files', {
+                                swf:             'galeria/swf/multiUpload.swf', 
+                                script:          'upload.php',
+                                expressInstall:  'galeria/swf/expressInstall.swf',
+                                multi:           true,
+                                data:            json, // Envia a variável json para o script de upload (com o id do álbum)
+                                fileDescription: 'JPEG Images',
+                                fileExtensions:  '*.jpg;*.jpeg',
+                                onAllComplete:   function()
+                                {
+                                    alert("Todos os arquivos foram enviados!");
+                                }
+                            });
+
+                            // Cria o html base para listagem dos arquivos selecionados e barra de progresso
+                            uploader.createBaseHtml();
+
+                            // Mostra as ações (Iniciar Upload, limpar fila)
+                            $(".upload_actions").show();
+                        }
+                        else // Caso o álbum não seja salvo
+                        {
+                            $(":text,textarea").removeAttr("disabled"); // Habilita os textos novamente
+                            alert(json.msg); // Mostra a mensagem de erro retornada
+                        }
+                    }
+                });
+
+                return false; // Previne o form de ser enviado pela forma normal
+            });
+
+            $(":text,textarea").removeAttr("disabled");
+        });
+</script>
 <style type="text/css">
     @import "galeria/css/multiUpload.css";
 </style>
 
 <body>
-
-<script type="text/javascript">
-    var uploader = new multiUpload('uploader', 'uploader_files', {
-        swf:            'galeria/swf/multiUpload.swf', // 
-        script:         'upload.php',
-        expressInstall: 'galeria/swf/expressInstall.swf',
-        multi:          true
-    });
-</script>
 
     <div id="pagina">
             <?php include('includes/topo.php'); ?>
@@ -48,19 +98,16 @@
             <div id="formulario">
                 <div id="headend"><b>Cadastrar Imagens</b> <br /> <p>Espaço reservado para o cadastro de imagens de novos produtos!</p></div>
                 <div id="inscricao">                                                       
-                    <div id="uploader"></div>
-                    <div align="left">                        
-                        <select name="album_id" id="album_id" style="margin: 15px 0px 0px 20px; width: 190px; height:25px;">
-                            <option selected value="Selecione">Selecione!</option
-                            <?php while ($row_albums = mysql_fetch_assoc($query)){ ?>                
-                                <option value=<?php echo $row_albums['id']; ?>><?php echo $row_albums['title']; ?></option>
-                            <?php } ?>
-                        </select>
-                    </div></br>
-                     <div id="uploader_files"></div>
-                    <div style="margin: 10px 0 0 60px; width: auto"> 
-                        <input class="botao" id="acao" name="acao" type="submit" onclick="javascript:uploader.startUpload();"value="Inserir" /> &nbsp; 
-                        <input class="botao" type="reset" onclick="javascript:uploader.clearUploadQueue();" value="Limpar" /> </div>               
+                    <form action="savealbum.php" id="album" method="POST" class="meuForm" onsubmit="return obrigatorio('nome;');">  
+                        <p><label for="nome"><b class="obrigatorio">*</b> Nome</label><input class="campo" id="nome" name="nome" title="Nome" type="text" style="width: 660px" /></p>
+                        <div style="margin: 10px 0 0 160px; width: auto"> <input class="botao" id="acao" name="acao" type="submit" value="Inserir" /> &nbsp; <input class="botao" type="reset" value="Limpar" /> </div>
+                    </form>
+                <div id="uploader"></div>
+                <div id="uploader_files"></div>
+            <br style="clear:both"/>
+                <input class="botao" id="acao" name="acao" type="submit" onclick="javascript:uploader.startUpload();"value="Inserir" /> &nbsp; 
+                <input class="botao" type="reset" onclick="javascript:uploader.clearUploadQueue();" value="Limpar" />  
+                <input class="botao" type="reset" onclick="./" value_"Novo Álbum" </div>
                 </div>
             </div>
         </div>
